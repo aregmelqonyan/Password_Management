@@ -21,9 +21,8 @@ class Database:
         self.connection.commit()
 
     def insert_values(self, user: User) -> None:
-        if self.cursor.fetchall() != user.login:
-            self.cursor.execute(f"""INSERT INTO users(login, password)
-                                    VALUES('{user.login}', '{user.password}')""")
+        self.cursor.execute(f"""INSERT INTO users(login, password)
+                                VALUES('{user.login}', '{user.password}')""")
         self.connection.commit()
         print("Inserted successfully!")
 
