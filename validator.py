@@ -29,7 +29,7 @@ class Validator:
                 numbers += 1
             elif character.isascii() and character.isalpha():
                 characters += 1
-            elif character in seps[1:]:
+            elif character in seps:
                 sep_counter += 1
             else:
                 raise Exception(f"Password can not contain {character}")
