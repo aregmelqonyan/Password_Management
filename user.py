@@ -12,5 +12,5 @@ class User:
 
     @staticmethod
     def hash_password(password) -> str:
-        pwd = f"{password}".encode()
+        pwd = password.encode()
         return hashlib.sha3_256(pwd).hexdigest()
