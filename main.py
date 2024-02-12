@@ -1,41 +1,44 @@
-from db import Database
 from user import User
-import hashlib
 from getpass import getpass
+from utils import all_users, registered, exit
 
-db = Database()
-db.create_table_users()
-login = input("Create your login: ")
-password = getpass("Create your password: ")
-user = User(login, password)
-db.insert_values(user)
+def main():
 
-print("Would you like to check your login and password?")
-answer = input("yes/no: ")
+    """
+    Main function to interact with the user for registration, login, and exiting the program.
+    """
+    
+    while True:
+        answer = input("Register, LogIn or Exit? ")
 
-try:
-    if answer.strip().lower() == "yes":
-        login = input("Please, etner your login. ")
-        password = getpass("Please, enter your password. ").encode()
+        if answer.strip().lower() == 'exit':
+            exit()
 
-        pwd = list(db.cursor.execute(f"""SELECT password FROM users
-                                   WHERE login == '{login}'"""))[0][0]
+        if answer.strip().lower() == "login":
+            email = input("Please, etner your email. ")
+            password = getpass("Please, enter your password. ").encode()
+        
+            if registered(email, password):
+                print("Loged In successfully! ")
+            else:
+                print("Invalid mail or password! ")
 
-        if hashlib.sha3_256(password).hexdigest() == pwd:
-            print("Right!")
-        else:
-            print("Wrong!")
+        if answer.strip().lower() == "register":
+            name = input("Create your name: ")
+            surname = input("Create your surname: ")
+            email = input("Create your email: ")
+            password = getpass("Create your password: ")
+            user = User(name, surname, email, password)
+            user.register()
 
-except:
-    print("Wrong")
+        print("Would you like to see all users?(yes/no) ")
+        answer = input("Yes/No")
 
-print("Would you like to see all users?(yes/no) ")
-answer = input()
+        try:
+            if answer.strip().lower() == "yes":
+                print(all_users())
+        except:
+            print("Your login and password saved successfully!")
 
-try:
-    if answer.strip().lower() == "yes":
-        print(f"{'Login': <51}Password")
-        for i in db.cursor.execute("SELECT * FROM users"):
-           print(f"{i[0]: <50}", i[1])
-except:
-    print("Your login and password saved successfully!")
+if __name__ == "__main__":
+    main()
