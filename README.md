@@ -12,14 +12,16 @@ This is a simple command-line program for user registration and login. It allows
 
 1. Clone this repository to your local machine.
 2. Make sure you have Python installed.
-3. Install the required dependencies by running `pip install -r requirements.txt`.
 
 ## Usage
 
-1. Run the program by executing `python main.py` in your terminal.
-2. Follow the prompts to register, login, or exit the program.
-3. When registering, you will be asked to provide your name, surname, email, and password.
-4. When logging in, you will be prompted to enter your email and password.
+1.'''bash
+  cd Password_Management
+  '''
+2. Run the program by executing `python main.py` in your terminal.
+3. Follow the prompts to register, login, or exit the program.
+4. When registering, you will be asked to provide your name, surname, email, and password.
+5. When logging in, you will be prompted to enter your email and password.
 
 ## Files
 
