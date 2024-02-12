@@ -15,8 +15,7 @@ This is a simple command-line program for user registration and login. It allows
 
 ## Usage
 
-1.
-```bash
+1.```bash
   cd Password_Management
 ```
 2. Run the program by executing `python main.py` in your terminal.
