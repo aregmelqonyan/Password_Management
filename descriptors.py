@@ -105,6 +105,7 @@ class SurnameValidator:
         """
 
         if not isinstance(value, str):
+            print("Surname must be a string")
             raise TypeError("Surname must be a string")
         if not self._validate_surname(value):
             raise ValueError("Invalid surname")

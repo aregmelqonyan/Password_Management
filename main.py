@@ -28,7 +28,11 @@ def main():
             surname = input("Create your surname: ")
             email = input("Create your email: ")
             password = getpass("Create your password: ")
-            user = User(name, surname, email, password)
+            try:
+                user = User(name, surname, email, password)
+            except Exception as e:
+                print(e)
+                main()
             user.register()
 
         print("Would you like to see all users?(yes/no) ")
