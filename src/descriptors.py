@@ -1,5 +1,5 @@
 import re
-from utils import password_exists, email_exists
+from .utils import password_exists, email_exists
 
 class NameValidator:
 

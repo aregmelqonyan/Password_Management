@@ -1,6 +1,6 @@
-from user import User
+from src.user import User
 from getpass import getpass
-from utils import all_users, registered, exit
+from src.utils import all_users, registered, exit
 
 def main():
 

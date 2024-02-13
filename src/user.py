@@ -1,6 +1,6 @@
 import hashlib
-from descriptors import NameValidator, SurnameValidator, EmailValidator, PasswordValidator
-from utils import write_into_file, registered
+from .descriptors import NameValidator, SurnameValidator, EmailValidator, PasswordValidator
+from .utils import write_into_file, registered
 
 
 class User:
