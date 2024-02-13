@@ -32,7 +32,7 @@ def main():
                 user = User(name, surname, email, password)
             except Exception as e:
                 print(e)
-                main()
+                continue
             user.register()
 
         print("Would you like to see all users?(yes/no) ")
